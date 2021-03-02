@@ -27,12 +27,12 @@
             include('view/category_list.php');
             break;
 
-        case "add_category";
+        case "add_category":
             add_category($category_name);
             header("Location: .?action=list_categories");
             break;
 
-        case "add_item";
+        case "add_item":
             if ($category_id && $title && $description) {
                 add_item($category_id, $title, $description);
                 header("Location: .?category_id=$category_id");
@@ -43,12 +43,12 @@
             }
             break;
 
-        case "delete_category";
+        case "delete_category":
             if ($category_id) {
                    try {
                     delete_category($category_id);
                 } catch (PDOException $e) {
-                    $error = "You cannot delete a category if items exist in the category.";
+                    $error = "You cannot delete this category because it contains todo items.";
                     include('../view/error.php');
                     exit();
                 }
@@ -56,7 +56,7 @@
             } 
             break;  
         
-        case "delete_item";
+        case "delete_item":
             if ($item_num) {
                 delete_item($item_num);
                 header("Location: .?category_id=$category_id");
