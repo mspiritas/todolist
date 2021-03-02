@@ -53,9 +53,7 @@
                     exit();
                 }
                 header("Location: .?action=list_categories");
-            } else {
-                $error = "Error message.";
-            }
+            } 
             break;  
         
         case "delete_item";
