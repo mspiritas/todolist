@@ -71,3 +71,4 @@
             $items = get_items_by_category($category_id);
             include('view/item_list.php');
     }
+
